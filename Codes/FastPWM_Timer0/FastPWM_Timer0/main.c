@@ -10,15 +10,15 @@ int main(void)
 
 	// Fast PWM mode (WGM00=1, WGM01=1)
 	
-	TCCR0A = (1 << WGM00);
-	TCCR0A =(1 << WGM01);
+	TCCR0A |= (1 << WGM00);
+	TCCR0A |=(1 << WGM01);
 	
 	//Non-inverting on OC0A (COM0A1=1)
 	
-	TCCR0A =(1 << COM0A1);
+	TCCR0A |=(1 << COM0A1);
 
 	// Prescaler = 64 (gives approximately 976 Hz PWM frequency at 16 MHz clock)
-	TCCR0B = (1 << CS01) | (1 << CS00);
+	TCCR0B |= (1 << CS01) | (1 << CS00);
 
 	// Set duty cycle = 40% of 255(ie 102 as OCR0A)
 	OCR0A = 102;

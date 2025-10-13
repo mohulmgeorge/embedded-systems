@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>162_LCD</AssemblyName>
-    <Name>162_LCD</Name>
-    <RootNamespace>162_LCD</RootNamespace>
+    <AssemblyName>lcd</AssemblyName>
+    <Name>lcd</Name>
+    <RootNamespace>lcd</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>

@@ -15,9 +15,10 @@ int main(void)
 
 	while (1)
 	{
+		float a=25.45;
 		
 lcd_set_cursor(1, 0);
-lcd_print("It works! ");
+lcd_print_float(a);
 
 	}
 }

@@ -36,10 +36,12 @@ int main(void)
 	{
 		lcd_clear();
 		lcd_set_cursor(0,0);
-		lcd_print("ADC VALUE:");
-		adc_value = ADC_Read(0);         // Read from analog channel 0 (A0 pin of arduino)
+		lcd_print("ADC Value:");
+		adc_value = ADC_Read(0);// Read from analog channel 0 (A0 pin of arduino)
 		lcd_set_cursor(1,0);
 		lcd_print_uint16(adc_value);
+		lcd_data(0xDF);   // prints ° symbol
+		lcd_print("C");
 		_delay_ms(500);
 		
 	}

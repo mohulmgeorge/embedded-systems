@@ -145,4 +145,30 @@ void lcd_print_uint16(uint16_t v)                                     //        
 	lcd_data('0' + (v % 10));       				// then print the last digit
 }
 
+void lcd_print_float(float value)
+{
+	// Handle negative numbers
+	if (value < 0)
+	{
+		lcd_data('-');
+		value = -value;
+	}
+
+	// Integer part
+	uint16_t int_part = (uint16_t)value;
+	lcd_print_uint16(int_part);
+
+	lcd_data('.');
+
+	// Fractional part (2 digits)
+	float frac = value - int_part;
+	frac = frac * 100.0f;       // scale to 2 decimal places
+	uint16_t frac_part = (uint16_t)(frac + 0.5f);  // rounding
+
+	// Handle leading zero after decimal (e.g., 3.05)
+	if (frac_part < 10)
+	lcd_data('0');
+
+	lcd_print_uint16(frac_part);
+}
 

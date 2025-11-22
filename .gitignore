@@ -1,6 +1,6 @@
 *.exe
 .vscode
-C\ Programming/circularlinkedlist.c
-C\ Programming/doublylinkedlist.c
-C\ Programming/shoppinglist.c
-C\ Programming/test.c
+C-Programming/circularlinkedlist.c
+C-Programming/doublylinkedlist.c
+C-Programming/shoppinglist.c
+C-Programming/test.c

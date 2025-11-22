@@ -1,0 +1,21 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="MCU" CircId="mega328-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-164,-112" rotation="0" hflip="1" vflip="1" label="mega328-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../DC Motor/DC Motor/Debug/DC Motor.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="Subcircuit" CircId="L293-6" mainComp="false" Show_id="true" Show_Val="false" Pos="-92,-80" rotation="0" hflip="1" vflip="1" label="L293-6" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="DcMotor" CircId="DcMotor-7" mainComp="false" Show_id="true" Show_Val="false" Pos="4,-56" rotation="90" hflip="1" vflip="1" label="DcMotor-7" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+
+<item itemtype="Voltage Source" CircId="Voltage Source-9" mainComp="false" ShowProp="MaxValue" Show_id="false" Show_Val="true" Pos="-72,-144" rotation="0" hflip="-1" vflip="1" label="Voltage Source-9" idLabPos="-32,-48" labelrot="0" valLabPos="-8,30" valLabRot="0" Running="true" Value_Volt="5 V" MaxValue="5 V" MinValue="0 V" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="L293-6-1Y" endpinid="DcMotor-7-lPin" pointList="-52,-72,-44,-72,-44,-108,4,-108,4,-96" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="L293-6-2Y" endpinid="DcMotor-7-rPin" pointList="-52,-64,-44,-64,-44,4,4,4,4,-16" />
+
+<item itemtype="Connector" uid="Connector-18" startpinid="Voltage Source-9-outPin" endpinid="L293-6-12EN" pointList="-100,-128,-112,-128,-112,-56,-100,-56" />
+
+<item itemtype="Connector" uid="Connector-19" startpinid="mega328-1-PORTC1" endpinid="L293-6-1A" pointList="-124,-72,-100,-72" />
+
+<item itemtype="Connector" uid="Connector-20" startpinid="mega328-1-PORTC0" endpinid="L293-6-2A" pointList="-124,-64,-100,-64" />
+
+</circuit>

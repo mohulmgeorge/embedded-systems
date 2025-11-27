@@ -1,0 +1,57 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Ground" CircId="Ground-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,128" rotation="0" hflip="1" vflip="1" label="GND" idLabPos="8.73653,-11.7119" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="MCU" CircId="mega328-3" mainComp="false" Show_id="true" Show_Val="false" Pos="-24,-16" rotation="0" hflip="1" vflip="1" label="atmega328p" idLabPos="-11.3258,120.028" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../PedestrianCrossing_Final/PedestrianCrossing_Final/Debug/PedestrianCrossing_Final.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="Led" CircId="Led-4" mainComp="false" ShowProp="Color" Show_id="false" Show_Val="true" Pos="-80,8" rotation="-180" hflip="1" vflip="1" label="Led-4" idLabPos="-16,-24" labelrot="0" valLabPos="-4.41937,17.562" valLabRot="180" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Led" CircId="Led-5" mainComp="false" ShowProp="Color" Show_id="false" Show_Val="true" Pos="-80,32" rotation="-180" hflip="1" vflip="1" label="Led-5" idLabPos="-16,-24" labelrot="0" valLabPos="-6.24789,17.2572" valLabRot="180" Color="Green" Grounded="false" Threshold="3.5 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="DcMotor" CircId="DcMotor-6" mainComp="false" Show_id="true" Show_Val="false" Pos="96,72" rotation="-270" hflip="1" vflip="1" label="DC Motor" idLabPos="-48.77,47.411" labelrot="270" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+
+<item itemtype="Push" CircId="Push-7" mainComp="false" Show_id="true" Show_Val="false" Pos="-64,96" rotation="0" hflip="1" vflip="1" label="Switch" idLabPos="-14.284,-28.1185" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Led" CircId="Led-8" mainComp="false" ShowProp="Color" Show_id="false" Show_Val="true" Pos="-80,-16" rotation="-180" hflip="1" vflip="1" label="Led-8" idLabPos="-16,-24" labelrot="0" valLabPos="-6.24789,19.0857" valLabRot="180" Color="Red" Grounded="false" Threshold="1.8 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Subcircuit" CircId="2bit_led_scc-11" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-132" rotation="0" hflip="1" vflip="1" label="2bit 7-Segment Display" idLabPos="86.9644,27.154" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Node" CircId="Node-2" mainComp="false" Pos="-108,32" />
+
+<item itemtype="Node" CircId="Node-9" mainComp="false" Pos="-108,8" />
+
+<item itemtype="Node" CircId="Node-10" mainComp="false" Pos="-108,96" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Push-7-switch0pinN" endpinid="mega328-3-PORTB0" pointList="-48,96,-32,96" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Led-5-rPin" endpinid="Node-2-1" pointList="-96,32,-108,32" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Led-8-lPin" endpinid="mega328-3-PORTD0" pointList="-64,-16,-48,-16,-48,0,-32,0" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="DcMotor-6-lPin" endpinid="mega328-3-PORTB2" pointList="96,32,96,20,36,20,36,88,16,88" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Node-9-2" endpinid="Node-2-0" pointList="-108,8,-108,32" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Led-4-rPin" endpinid="Node-9-1" pointList="-96,8,-108,8" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Led-5-lPin" endpinid="mega328-3-PORTD2" pointList="-64,32,-48,32,-48,16,-32,16" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Led-8-rPin" endpinid="Node-9-0" pointList="-96,-16,-108,-16,-108,8" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Node-2-2" endpinid="Node-10-0" pointList="-108,32,-108,96" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="DcMotor-6-rPin" endpinid="mega328-3-PORTB1" pointList="96,112,96,124,36,124,36,96,16,96" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Led-4-lPin" endpinid="mega328-3-PORTD1" pointList="-64,8,-32,8" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Push-7-pinP0" endpinid="Node-10-1" pointList="-80,96,-108,96" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Node-10-2" endpinid="Ground-1-Gnd" pointList="-108,96,-108,112" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="2bit_led_scc-11-SDI" endpinid="mega328-3-PORTC5" pointList="-100,-44,-100,-32,20,-32,20,-8,16,-8" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="2bit_led_scc-11-SCLK" endpinid="mega328-3-PORTC4" pointList="-92,-44,-92,-36,24,-36,24,0,16,0" />
+
+<item itemtype="Connector" uid="Connector-16" startpinid="2bit_led_scc-11-LOAD" endpinid="mega328-3-PORTC3" pointList="-84,-44,-84,-40,28,-40,28,8,16,8" />
+
+</circuit>

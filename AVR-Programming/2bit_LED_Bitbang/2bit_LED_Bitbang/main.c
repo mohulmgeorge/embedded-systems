@@ -29,8 +29,10 @@ int main(void)
     while (1) 
     {
 		displayNumber(num/10, num%10);
-		_delay_ms(1000);
-	num++;
+		_delay_ms(250);
+		num++;
+		if(num==100)
+			num = 0;
     }
 }
 

@@ -1,13 +1,13 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                              main.o (__divmodhi4)
+                              traffic.o (__divmodhi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              main.o (__do_copy_data)
+                              display.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              main.o (__do_clear_bss)
+                              timer.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o) (__udivmodhi4)
 
@@ -15,14 +15,21 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .text          0x00000000        0x0 display.o
+ .data          0x00000000        0x0 display.o
+ .bss           0x00000000        0x0 display.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.cw       0x00000000        0xe main.o
- .text.acw      0x00000000        0xe main.o
- .text.reset_motor
-                0x00000000        0xe main.o
- .text.motor    0x00000000       0x18 main.o
+ .text          0x00000000        0x0 motor.o
+ .data          0x00000000        0x0 motor.o
+ .bss           0x00000000        0x0 motor.o
+ .text          0x00000000        0x0 timer.o
+ .data          0x00000000        0x0 timer.o
+ .bss           0x00000000        0x0 timer.o
+ .text          0x00000000        0x0 traffic.o
+ .data          0x00000000        0x0 traffic.o
+ .bss           0x00000000        0x0 traffic.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
@@ -116,7 +123,11 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
+LOAD display.o
 LOAD main.o
+LOAD motor.o
+LOAD timer.o
+LOAD traffic.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
@@ -226,7 +237,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x57a
+.text           0x00000000      0x5ca
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -311,41 +322,61 @@ END GROUP
                 0x000000a2                __vector_20
                 0x000000a6                . = ALIGN (0x2)
  *(.text.*)
- .text.configure
-                0x000000a6       0x5c main.o
-                0x000000a6                configure
- .text.stop_timer
-                0x00000102        0x8 main.o
-                0x00000102                stop_timer
- .text.start_timer
-                0x0000010a        0xa main.o
-                0x0000010a                start_timer
- .text.__vector_3
-                0x00000114       0xd2 main.o
-                0x00000114                __vector_3
- .text.__vector_14
-                0x000001e6       0x22 main.o
-                0x000001e6                __vector_14
  .text.shift_out
-                0x00000208       0x2c main.o
-                0x00000208                shift_out
+                0x000000a6       0x2c display.o
+ .text.display_init
+                0x000000d2        0x8 display.o
+                0x000000d2                display_init
  .text.display_number
-                0x00000234       0x30 main.o
-                0x00000234                display_number
- .text.main     0x00000264      0x2c2 main.o
-                0x00000264                main
+                0x000000da       0x30 display.o
+                0x000000da                display_number
+ .text.main     0x0000010a       0x18 main.o
+                0x0000010a                main
+ .text.motor_init
+                0x00000122       0x10 motor.o
+                0x00000122                motor_init
+ .text.motor_cw
+                0x00000132        0xe motor.o
+                0x00000132                motor_cw
+ .text.motor_acw
+                0x00000140        0xe motor.o
+                0x00000140                motor_acw
+ .text.motor_stop
+                0x0000014e        0xe motor.o
+                0x0000014e                motor_stop
+ .text.timer_init
+                0x0000015c       0x40 timer.o
+                0x0000015c                timer_init
+ .text.timer_start
+                0x0000019c        0xa timer.o
+                0x0000019c                timer_start
+ .text.timer_stop
+                0x000001a6        0x8 timer.o
+                0x000001a6                timer_stop
+ .text.__vector_14
+                0x000001ae       0x38 timer.o
+                0x000001ae                __vector_14
+ .text.__vector_3
+                0x000001e6       0xda timer.o
+                0x000001e6                __vector_3
+ .text.traffic_init
+                0x000002c0        0xe traffic.o
+                0x000002c0                traffic_init
+ .text.traffic_update
+                0x000002ce      0x2a8 traffic.o
+                0x000002ce                traffic_update
  .text.libgcc.div
-                0x00000526       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                0x00000526                _div
-                0x00000526                __divmodhi4
+                0x00000576       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00000576                _div
+                0x00000576                __divmodhi4
  .text.libgcc.div
-                0x0000054e       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000054e                __udivmodhi4
-                0x00000576                . = ALIGN (0x2)
+                0x0000059e       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000059e                __udivmodhi4
+                0x000005c6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000576        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000576                _exit
-                0x00000576                exit
+ .fini9         0x000005c6        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000005c6                _exit
+                0x000005c6                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -364,23 +395,21 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000576        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000005c6        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000057a                _etext = .
+                0x000005ca                _etext = .
 
-.data           0x00800100        0xc load address 0x0000057a
+.data           0x00800100        0xc load address 0x000005ca
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data.prev_state_switch
-                0x00800100        0x1 main.o
-                0x00800100                prev_state_switch
+                0x00800100        0x1 timer.o
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.digits
-                0x00800101        0xa main.o
-                0x00800101                digits
+                0x00800101        0xa display.o
  *(.gnu.linkonce.r*)
                 0x0080010c                . = ALIGN (0x2)
  *fill*         0x0080010b        0x1 
@@ -391,18 +420,17 @@ END GROUP
                 0x0080010c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.cs        0x0080010c        0x1 main.o
-                0x0080010c                cs
- .bss.ps        0x0080010d        0x1 main.o
-                0x0080010d                ps
- .bss.seconds   0x0080010e        0x1 main.o
-                0x0080010e                seconds
- .bss.count0    0x0080010f        0x1 main.o
-                0x0080010f                count0
+ .bss.seconds   0x0080010c        0x1 timer.o
+                0x0080010c                seconds
+ .bss.count0    0x0080010d        0x1 timer.o
+ .bss.cs        0x0080010e        0x1 traffic.o
+                0x0080010e                cs
+ .bss.ps        0x0080010f        0x1 traffic.o
+                0x0080010f                ps
  *(COMMON)
                 0x00800110                PROVIDE (__bss_end, .)
-                0x0000057a                __data_load_start = LOADADDR (.data)
-                0x00000586                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000005ca                __data_load_start = LOADADDR (.data)
+                0x000005d6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800110        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -450,8 +478,12 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 main.o
+ .comment       0x00000000       0x30 display.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 main.o
+ .comment       0x00000030       0x31 motor.o
+ .comment       0x00000030       0x31 timer.o
+ .comment       0x00000030       0x31 traffic.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
@@ -473,42 +505,75 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x78
+.debug_aranges  0x00000000       0xf0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x78 main.o
+                0x00000000       0x30 display.o
+ .debug_aranges
+                0x00000030       0x20 main.o
+ .debug_aranges
+                0x00000050       0x38 motor.o
+ .debug_aranges
+                0x00000088       0x40 timer.o
+ .debug_aranges
+                0x000000c8       0x28 traffic.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x99c
+.debug_info     0x00000000      0xca2
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x3a8 main.o
+ .debug_info    0x000005f4      0x13f display.o
+ .debug_info    0x00000733       0xf0 main.o
+ .debug_info    0x00000823       0xc1 motor.o
+ .debug_info    0x000008e4      0x199 timer.o
+ .debug_info    0x00000a7d      0x225 traffic.o
 
-.debug_abbrev   0x00000000      0x738
+.debug_abbrev   0x00000000      0x8e4
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x196 main.o
+ .debug_abbrev  0x000005a2       0xdb display.o
+ .debug_abbrev  0x0000067d       0x68 main.o
+ .debug_abbrev  0x000006e5       0x4f motor.o
+ .debug_abbrev  0x00000734       0xeb timer.o
+ .debug_abbrev  0x0000081f       0xc5 traffic.o
 
-.debug_line     0x00000000      0x642
+.debug_line     0x00000000      0x836
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000134      0x50e main.o
+ .debug_line    0x00000134      0x134 display.o
+ .debug_line    0x00000268       0x91 main.o
+ .debug_line    0x000002f9       0xfa motor.o
+ .debug_line    0x000003f3      0x1e5 timer.o
+ .debug_line    0x000005d8      0x25e traffic.o
 
-.debug_frame    0x00000000      0x138
+.debug_frame    0x00000000      0x1b8
  *(.debug_frame)
- .debug_frame   0x00000000      0x138 main.o
+ .debug_frame   0x00000000       0x4c display.o
+ .debug_frame   0x0000004c       0x24 main.o
+ .debug_frame   0x00000070       0x54 motor.o
+ .debug_frame   0x000000c4       0xc0 timer.o
+ .debug_frame   0x00000184       0x34 traffic.o
 
-.debug_str      0x00000000      0x46a
+.debug_str      0x00000000      0x4e9
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x262 main.o
-                                0x29c (size before relaxing)
+ .debug_str     0x00000208      0x1b6 display.o
+                                0x1ea (size before relaxing)
+ .debug_str     0x000003be       0x43 main.o
+                                0x1da (size before relaxing)
+ .debug_str     0x00000401       0x2b motor.o
+                                0x1c8 (size before relaxing)
+ .debug_str     0x0000042c       0xae timer.o
+                                0x24b (size before relaxing)
+ .debug_str     0x000004da        0xf traffic.o
+                                0x249 (size before relaxing)
 
 .debug_loc      0x00000000      0x1ed
  *(.debug_loc)
- .debug_loc     0x00000000      0x1ed main.o
+ .debug_loc     0x00000000       0xac display.o
+ .debug_loc     0x000000ac      0x141 timer.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -528,9 +593,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x68
+.debug_ranges   0x00000000       0xa0
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x68 main.o
+ .debug_ranges  0x00000000       0x20 display.o
+ .debug_ranges  0x00000020       0x10 main.o
+ .debug_ranges  0x00000030       0x28 motor.o
+ .debug_ranges  0x00000058       0x30 timer.o
+ .debug_ranges  0x00000088       0x18 traffic.o
 
 .debug_macro
  *(.debug_macro)
